@@ -1,0 +1,39 @@
+/*11. Construct a program that can help the customer to calculate the monthly  installment. The program should be able to receive two inputs from the  customer, which are the amount of loan in Ringgit Malaysia and year of  installment. Based on these two inputs, the program should therefore be  able to calculate the monthly instalment. The table for the interest  calculation is provided as follows: 
+Year 
+Interest (%)
+<5 
+4.5
+>=5 
+6.5
+The formulas for the monthly instalment calculation are as follows: 
+ Interest (RM) = Interest (%) x Amount of Loan 
+ Total Loan with Interest = Amount of Loan + Interest (RM)  Monthly Instalment = Total Loan with Interest/ (Year of Instalment x 12)
+*/
+
+#include <stdio.h>
+
+int main()
+{ 
+    int year;
+    float amount, interest, totalInterest, totalLoan, monthlyInstalment;
+    
+    printf("Enter the year performance: ");
+    scanf("%i", &year);
+    printf("Enter the amount of loan : ");
+    scanf("%f", &amount);
+    
+    if(year >= 5)
+    { 
+        interest = 6.5/100* amount;
+    }else
+    {
+        interest = 4.5/100* amount;
+    }
+        totalInterest= interest * amount;
+        totalLoan= amount + totalInterest;
+        monthlyInstalment= totalLoan/(year*12);
+        printf("The monthly Instalment is RM %.2f:", monthlyInstalment);
+    return 0;
+
+}
+
