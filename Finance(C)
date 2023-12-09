@@ -1,0 +1,46 @@
+/*SSY Co Ltd is one of the finance companies. This company wants you to  construct a program which helps in calculating the bonus for its  employees. The bonus will be calculated based on the performance mark of  the employee. Your program should be able to receive a performance mark  from the user and display the bonus to the user as well. The table for the  bonus is provided as follows: 
+Performance Mark 
+Bonus (RM)
+6<= Mark <= 10 
+2000
+<6 
+1000
+
+
+
+If the payment is between RM 5000 and RM 10000 display a message that  the customer will be given a free air ticket to Langkawi. Otherwise, display a  message that the customer will only be given a free lunch at Quality Hotel. 
+*/
+#include <stdio.h>
+
+int main()
+{
+    int mark;
+    float payment, totalPayment;
+    
+    printf("Enter your mark:");
+    scanf("%i", &mark);
+    printf("Enter your payment:");
+    scanf("%f", &payment);
+    
+    if(mark <6)
+    { 
+        totalPayment= payment + 1000;
+    }else if(mark >=6)
+    { 
+        totalPayment= payment + 2000;
+    }
+    printf("Your total Payment is RM %.2f", totalPayment);
+    printf("\n");
+     if(totalPayment <5000)
+    { 
+        printf("Congratulation!You get free lunch at Quality Hotel.");
+    }else if(mark >=5000)
+    { 
+        printf("Congratulations! You get free air ticket to Langkawi.");
+    }else if(mark <=10000)
+    { 
+        printf("Congratulations! You get free air ticket to Langkawi.");
+    }
+    return 0;
+}
+
