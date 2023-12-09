@@ -1,0 +1,10 @@
+/*Write a program that calculates and returns the fourth root of the number  81.0, which is 3. Your program should make use of the sqrt functions. */
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    float p,a=81;
+    p=pow(a,(0.25));
+    printf("Fourth Root %f",p);
+    return 0;
+}
