@@ -1,0 +1,36 @@
+a. Run the program. Determine the output if the loan is 29000. 
+The loan with interest is RM 49300
+b. Run the program. Determine the range of loan if the interest rate is 0.8.  
+The loan with interest is RM 52200
+c. Modify the program by using switch statement. 
+#include <stdio.h>
+
+int main()
+{
+    float interest, loan, loanInterest;
+    scanf("%f", &loan);
+    
+    if (loan >=50000)
+    {
+        interest = 0.5* loan;
+    }
+    else if (loan >= 30000)
+    {
+         interest = 0.6* loan;
+    }else if (loan >= 10000)
+    {
+         interest = 0.8* loan;
+    }
+    else
+    {
+        interest =0.8* loan;
+    }
+    
+    loanInterest =loan+interest;
+    
+    printf("The loan with interest is RM %.2f", loanInterest);
+    
+    return 0;
+}
+
+
