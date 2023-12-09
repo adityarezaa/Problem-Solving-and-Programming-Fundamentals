@@ -1,0 +1,71 @@
+/*Write computeCircule() function that returns the area a and the  circumference c of a circle with given radius r: */
+#include <stdio.h>
+int main()
+{
+   int circleRadius;
+   float PhiValue=3.14; 
+   float circleArea;
+   float circleCircumf;
+
+   printf("Enter radius of circle: ");
+   scanf("%d",&circleRadius);
+
+   circleArea = PhiValue * circleRadius * circleRadius;
+   printf("\nArea of circle is: %f", circleArea);
+
+   circleCircumf = 2 * PhiValue * circleRadius;
+   printf("\nCircumference of circle is: %f", circleCircumf);
+
+   return(0);
+}
+/*8. Write a main function that calls these functions. 
+a) Call the function initialVar. 
+b) Prompt the user to enter 30 number. 
+c) For each number in the list, 
+i. Call a function getNum 
+ii. Output the number 
+iii. Call function determineNum 
+d) Call the function printResult*/
+
+#include <stdio.h>
+
+int initialVar();
+int getNum(float);
+int determineNum(float);
+int printResult(float);
+int main()
+{
+initialVar();
+return 0;
+}
+int initialVar()
+{
+float Num, sum=0;
+for(int i=0; i<=29;i++)
+{
+printf(“Enter a number\n”);
+scanf(“%f”, &Num);
+sum += Num;
+getNum(Num);
+determineNum(Num);
+}
+printResult(sum);
+}
+int getNum(float Num){
+printf(“You entered %.2f”, Num);
+}
+int determineNum(float Num)
+{
+if (Num <50){
+printf(“Your number is less than 50 \n\n”);
+}
+else{
+printf(“Your number is 50 or more\n\n”);
+}
+}
+int printResult(float sum)
+{
+printf(“The sum of the numbers which you entered is %.2f\n”, sum);
+}
+
+
