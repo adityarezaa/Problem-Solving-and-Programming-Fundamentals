@@ -1,0 +1,171 @@
+#include &lt;stdio.h&gt;
+void add();
+void delete();
+void update();
+void list();
+void search();
+int size = 5;
+int isbn[5], genre[5], operation, stop;
+int main()
+{
+do{
+stop=0;
+printf(&quot;\n\n----------&gt;Welcome to the Library Information System&lt;----------
+\n&quot;);
+printf(&quot;===================================================================\n&quot;);
+printf(&quot;What is the operation that you want to execute? \n&quot;);
+printf(&quot;1) Add the book \n&quot;);
+printf(&quot;2) Delete the book \n&quot;);
+printf(&quot;3) Update the book \n&quot;);
+printf(&quot;4) List of the book(s)\n&quot;);
+printf(&quot;5) Search the book\n&quot;);
+printf(&quot;\nOperation : &quot;);
+scanf(&quot;%i&quot;, &amp;operation);
+if(operation == 1)
+{
+printf(&quot;\nYou choose to add the book. &quot;);
+add();
+}
+else if(operation == 2)
+{
+printf(&quot;\nYou choose to delete the book. &quot;);
+delete();
+}
+else if(operation == 3)
+{
+printf(&quot;\nYou choose to update the book. &quot;);
+update();
+}
+else if(operation == 4)
+{
+printf(&quot;\nYou choose to view the list of the book(s). &quot;);
+list();
+}
+else if(operation == 5)
+{
+printf(&quot;\nYou choose to search the book. &quot;);
+search();
+}
+else
+{
+printf(&quot;\nThe number that you enter is incorrect. &quot;);
+}
+printf(&quot;\n\nDo you want to continue? Press 1 to continue. &quot;);
+scanf(&quot;%d&quot;, &amp;stop);
+}while(stop==1);
+return 0;
+}
+void add()
+{
+int position =0, isbnValidate=0, exist=0;
+for(int x=0; x&lt;size; x++){
+if(isbn[x]==0){
+position = x;
+break;
+}
+}
+printf(&quot;\n\nEnter the ISBN No. (4 digits UNIQUE ID) : &quot;);
+scanf(&quot;%d&quot;, &amp;isbnValidate);
+
+for(int y=0; y&lt;size; y++){
+if(isbn[y]==isbnValidate){
+printf(&quot;The ISBN No. is already exist. &quot;);
+exist =1;
+break;
+}
+}
+
+if(exist ==0){
+isbn[position]= isbnValidate;
+printf(&quot;Enter the genre (1-Fiction / 2-Mystery / 3-Fantasy / 4-Historical):
+&quot;);
+scanf(&quot;%d&quot;, &amp;genre[position]);
+printf(&quot;The book is successfully added.&quot;);
+}
+}
+void delete()
+{ int isbnDelete,position;
+printf(&quot;\nEnter the ISBN No. of the book that you want to delete : &quot;);
+scanf(&quot;%d&quot;, &amp;isbnDelete);
+for(int x=0; x&lt;size; x++){
+if(isbn[x]==isbnDelete){
+position = x;
+break;
+}
+}
+for(int x=position; x&lt;size; x++){
+if(isbn[x]!=0){
+isbn[x] = isbn[x+1];
+genre[x] = genre[x+1];
+}
+else
+{
+break;
+}
+}
+}
+void update()
+{
+int isbnUpdate,position, genreUpdate;
+printf(&quot;\nEnter the ISBN No.of the book that you want to update : &quot;);
+scanf(&quot;%d&quot;, &amp;isbnUpdate);
+printf(&quot;\nEnter the genre of the book that you want to update : &quot;);
+scanf(&quot;%d&quot;, &amp;genreUpdate);
+for(int x=0; x&lt;size; x++){
+if(isbn[x]==isbnUpdate){
+position = x;
+break;
+}
+}
+
+for(int x=position; x&lt;size; x++){
+if(isbn[x]==isbnUpdate){
+genre[x] = genreUpdate;
+}
+else
+{
+break;
+}
+}
+}
+void search()
+{ int isbnSearch,position, found=0;
+printf(&quot;\nEnter the ISBN No. of the book that you want to search : &quot;);
+scanf(&quot;%d&quot;, &amp;isbnSearch);
+for(int x=0; x&lt;size; x++){
+if(isbn[x]==isbnSearch){
+position = x;
+break;
+}
+}
+printf(&quot;\n\n----------&gt;List of the book(s)&lt;---------- \n&quot;);
+printf(&quot;=============================================\n&quot;);
+printf(&quot; No. ISBN No. Genre \n&quot;);
+printf(&quot;=============================================\n&quot;);
+for(int y=0; y&lt;size; y++){
+if(isbn[y]==isbnSearch){
+printf(&quot; %d %d %d \n&quot;,y+1,isbn[y],genre[y]);
+printf(&quot;\nThe book is found. &quot;);
+found=1;
+break;
+}
+}
+if(found !=1){
+printf(&quot;\nThe book is not found. &quot;);
+}
+}
+
+void list()
+{
+printf(&quot;\n\n----------&gt;List of the book(s)&lt;---------- \n&quot;);
+printf(&quot;=============================================\n&quot;);
+printf(&quot; No. ISBN No. Genre \n&quot;);
+printf(&quot;=============================================\n&quot;);
+for(int y=0; y&lt;size; y++){
+if(isbn[y]==0){
+break;
+}
+printf(&quot; %d %d %d \n&quot;,y+1,isbn[y],genre[y]);
+}
+printf(&quot;\nAll of the books are listed. &quot;);
+}
