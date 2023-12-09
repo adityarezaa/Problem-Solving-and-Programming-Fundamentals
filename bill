@@ -1,0 +1,19 @@
+/* Bill*/
+#include <stdio.h>
+
+int main()
+{ 
+    float bill;
+    
+    printf("Enter the water bill amount : ");
+    scanf("%f", &bill);
+    
+    if(bill >= 350)
+    { 
+        printf("You will receive a 1.5 percent discount.");
+    }else
+    {
+        printf("You will receive a 0.5 percet discount. ");
+    }
+    return 0;
+}
